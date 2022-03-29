@@ -1,16 +1,12 @@
 /* eslint-disable prettier/prettier */
 import React from 'react';
 
-import {
-  SafeAreaView,
-} from 'react-native';
-
-import Home from './screens/home/index';
+import AppNavigation from './navigation/index';
 
 const App = () => {
 
   return (
-      <Home />
+      <AppNavigation/>
   );
 };
 
