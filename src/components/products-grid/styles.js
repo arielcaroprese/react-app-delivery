@@ -16,8 +16,21 @@ export const styles = StyleSheet.create({
         padding: 10,
         height: height / 4,
     },
-    title: {
-        fontFamily: 'Montserrat-SemiBold',
+    details: {
+        flexDirection: 'column',
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
+    name: {
+        fontFamily: 'Montserrat-Regular',
         fontSize: 20,
+    },
+    description: {
+        fontFamily: 'Montserrat-Regular',
+        fontSize: 20,
+    },
+    price: {
+        fontFamily: 'Montserrat-SemiBold',
+        fontSize: 24,
     },
 })

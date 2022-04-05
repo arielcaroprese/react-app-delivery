@@ -7,9 +7,19 @@ export const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
     },
-    title: {
+    name: {
         fontSize: 24,
         color: 'black',
         marginBottom: 24,
-    }
+    },
+    description: {
+        fontSize: 24,
+        color: 'black',
+        marginBottom: 24,
+    },
+    price: {
+        fontSize: 24,
+        color: 'black',
+        marginBottom: 24,
+    },
 })

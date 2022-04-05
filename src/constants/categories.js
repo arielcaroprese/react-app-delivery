@@ -2,7 +2,7 @@ export const CATEGORIES = [
     {
         id: '1',
         name: 'Burgers',
-        color: 'black',
+        color: 'grey',
         description: 'Las mejores hamburguesas'
     },
     {

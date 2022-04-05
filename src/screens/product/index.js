@@ -1,18 +1,29 @@
 /* eslint-disable prettier/prettier */
 import React from 'react';
 
-import { Text, View } from 'react-native';
+import { Text, View, Button } from 'react-native';
 
-import { styles } from './styles'
+import { styles } from './styles';
 
-const Product = () => {
+const Product = ({ navigation, route }) => {
+
+    const { product } = route.params;
+    const { name, description, price } = product;
+
     return (
         <View style={styles.container}>
-            <Text style={styles.title}>
-                Product Screen
+            <Text style={styles.name}>
+                {name}
             </Text>
+            <Text style={styles.description}>
+                {description}
+            </Text>
+            <Text style={styles.price}>
+                ${price}
+            </Text>
+            <Button title="Agregar al carrito" onPress={() => null} />
         </View>
-    )
+    );
 };
 
 export default Product;
