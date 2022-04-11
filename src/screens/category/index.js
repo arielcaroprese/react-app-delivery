@@ -1,31 +1,41 @@
 /* eslint-disable prettier/prettier */
-import React from 'react';
+import React , { useEffect } from 'react';
 
 import { View, FlatList } from 'react-native';
 
 import { styles } from './styles';
 
-import { CATEGORIES } from '../../constants/categories';
-import { PRODUCTS } from '../../constants/products';
+import { useSelector, connect, useDispatch } from 'react-redux';
+
+import { filteredProducts, selectProduct } from '../../store/actions/product.action';
 
 import ProductsGrid from '../../components/products-grid/index';
-
 const Category = ( { navigation, route } ) => {
 
-    const { id } = route.params;
+    const dispatch = useDispatch();
 
-    const selectedCategory = PRODUCTS.filter(product => product.category === id);
+    const categoryProducts = useSelector(state => state.products.filteredProducts);
+
+    const selectedCategory = useSelector(state => state.categories .selectedCategory);
+
+    console.log(selectedCategory);
+    console.log(categoryProducts);
 
     const handleSelectCategory = (product) => {
-        navigation.navigate('Product', { product, name: product.name });
+        dispatch(selectProduct(product.id))
+        navigation.navigate('Product', { name: product.name });
     };
 
     const renderItem = ({ item }) => <ProductsGrid item={item} onSelected={handleSelectCategory}/>;
 
+    useEffect(() => {
+        dispatch(filteredProducts(selectedCategory.id))
+    }, [])
+
     return (
         <View style={styles.container}>
             <FlatList
-            data={selectedCategory}
+            data={categoryProducts}
             keyExtractor={item => item.id}
             renderItem={renderItem}
             numColumns= {1}
@@ -35,4 +45,4 @@ const Category = ( { navigation, route } ) => {
     );
 };
 
-export default Category;
+export default connect()(Category);

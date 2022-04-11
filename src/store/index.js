@@ -1,7 +1,7 @@
 /* eslint-disable prettier/prettier */
 import { createStore, combineReducers } from 'redux';
-import categoryReducer from './category.reducer';
-import productReducer from './product.reducer';
+import categoryReducer from './reducers/category.reducer';
+import productReducer from './reducers/product.reducer';
 
 const rootReducer = combineReducers({
     categories: categoryReducer,

@@ -3,11 +3,14 @@ import React from 'react';
 
 import { Text, View, Button } from 'react-native';
 
+import { useSelector, connect} from 'react-redux';
+
 import { styles } from './styles';
 
 const Product = ({ navigation, route }) => {
+    
+    const product = useSelector(state => state.products.selectedProduct);
 
-    const { product } = route.params;
     const { name, description, price } = product;
 
     return (
@@ -26,4 +29,4 @@ const Product = ({ navigation, route }) => {
     );
 };
 
-export default Product;
+export default connect()(Product);
